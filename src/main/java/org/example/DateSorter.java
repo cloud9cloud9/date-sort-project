@@ -10,19 +10,19 @@ import java.util.stream.Collectors;
  * Marking will be based upon producing a readable, well engineered solution rather than factors
  * such as speed of processing or other performance-based optimizations, which are less
  * important.
- *
- *
- package sample;
-
- import java.time.LocalDate;
- import java.util.Collection;
- import java.util.List;
-
- /**
+ * <p>
+ * <p>
+ * package sample;
+ * <p>
+ * import java.time.LocalDate;
+ * import java.util.Collection;
+ * import java.util.List;
+ * <p>
+ * /**
  * Marking will be based upon producing a readable, well engineered solution rather than factors
  * such as speed of processing or other performance-based optimizations, which are less
  * important.
- *
+ * <p>
  * Implement in single class. Don't chane constructor and signature method.
  */
 public class DateSorter {
@@ -46,14 +46,14 @@ public class DateSorter {
 
     private static final String LETTER_R = "r";
 
-    public Collection<LocalDate> dateWithEndLetterR(List<LocalDate> unsortedDates) {
+    public Collection<LocalDate> sortAndGetMonthWithLetterR(List<LocalDate> unsortedDates) {
         return unsortedDates.stream()
                 .filter(date -> date.getMonth().toString().toLowerCase().contains(LETTER_R))
                 .sorted()
                 .collect(Collectors.toList());
     }
 
-    public Collection<LocalDate> dateWithoutEndLetterR(List<LocalDate> unsortedDates) {
+    public Collection<LocalDate> sortAndGetMonthWithoutLetterR(List<LocalDate> unsortedDates) {
         return unsortedDates.stream()
                 .filter(date -> !date.getMonth().toString().toLowerCase().contains(LETTER_R))
                 .sorted(Comparator.reverseOrder())
@@ -61,9 +61,9 @@ public class DateSorter {
     }
 
     public Collection<LocalDate> sortDates(List<LocalDate> unsortedDates) {
-        Collection<LocalDate> dateWithEndLetterR = dateWithEndLetterR(unsortedDates);
-        Collection<LocalDate> dateWithoutEndLetterR = dateWithoutEndLetterR(unsortedDates);
-        dateWithEndLetterR.addAll(dateWithoutEndLetterR);
-        return dateWithEndLetterR;
+        Collection<LocalDate> dateWithLetterR = sortAndGetMonthWithLetterR(unsortedDates);
+        Collection<LocalDate> dateWithoutLetterR = sortAndGetMonthWithoutLetterR(unsortedDates);
+        dateWithLetterR.addAll(dateWithoutLetterR);
+        return dateWithLetterR;
     }
 }

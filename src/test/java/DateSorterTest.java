@@ -28,16 +28,16 @@ public class DateSorterTest {
     }
 
     @Test
-    public void testSortDatesWithEndLetterR() {
-        Collection<LocalDate> localDatesWithEndLetterR = dateSorter.dateWithEndLetterR(unsortedDates);
-        assertEquals(localDatesWithEndLetterR, List.of(LocalDate.of(2005, 1, 2)
+    public void testSortDatesWithLetterR() {
+        Collection<LocalDate> datesWithLetterRInMonth = dateSorter.sortAndGetMonthWithLetterR(unsortedDates);
+        assertEquals(datesWithLetterRInMonth, List.of(LocalDate.of(2005, 1, 2)
                 , LocalDate.of(2007, 1, 1)));
     }
 
     @Test
-    public void testSortDatesWithoutEndLetterR() {
-        Collection<LocalDate> localDatesWithoutEndLetterR = dateSorter.dateWithoutEndLetterR(unsortedDates);
-        assertEquals(localDatesWithoutEndLetterR, List.of(LocalDate.of(2032, 5, 3),
+    public void testSortDatesWithoutLetterR() {
+        Collection<LocalDate> datesWithoutLetterRInMonth = dateSorter.sortAndGetMonthWithoutLetterR(unsortedDates);
+        assertEquals(datesWithoutLetterRInMonth, List.of(LocalDate.of(2032, 5, 3),
                 LocalDate.of(2004, 7, 1)));
     }
 
