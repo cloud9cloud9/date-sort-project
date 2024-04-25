@@ -61,9 +61,9 @@ public class DateSorter {
     }
 
     public Collection<LocalDate> sortDates(List<LocalDate> unsortedDates) {
-        Collection<LocalDate> dateWithLetterR = sortAndGetMonthWithLetterR(unsortedDates);
-        Collection<LocalDate> dateWithoutLetterR = sortAndGetMonthWithoutLetterR(unsortedDates);
-        dateWithLetterR.addAll(dateWithoutLetterR);
-        return dateWithLetterR;
+        Collection<LocalDate> datesWithLetterRInMonth = sortAndGetMonthWithLetterR(unsortedDates);
+        Collection<LocalDate> datesWithoutLetterRInMonth = sortAndGetMonthWithoutLetterR(unsortedDates);
+        datesWithLetterRInMonth.addAll(datesWithoutLetterRInMonth);
+        return datesWithLetterRInMonth;
     }
 }
